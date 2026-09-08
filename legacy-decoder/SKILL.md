@@ -1,6 +1,6 @@
 ---
 name: legacy-decoder
-description: Reverse-engineer legacy code into structured documentation (Tech Spec + Tasks). Use when: user says "pahami kode", "analisis legacy", "reverse engineer", "mapping kode", "dokumentasi kode existing".
+description: "Reverse-engineer legacy code into structured documentation (Tech Spec + Tasks). Use when: user says 'pahami kode', 'analisis legacy', 'reverse engineer', 'mapping kode', 'dokumentasi kode existing'."
 ---
 
 # SKILL: LEGACY DECODER

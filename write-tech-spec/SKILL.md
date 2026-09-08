@@ -1,6 +1,6 @@
 ---
 name: write-tech-spec
-description: Write technical specifications for features, changes, or bug fixes. Produces a markdown file in .agents/tech-specs/<YEAR>/ for user review, then creates issues after approval. Gunakan ketika: user minta tech spec, user minta spesifikasi teknis, user minta implementation plan, user minta dokumentasi teknis, atau user mendeskripsikan fitur yang butuh perencanaan sebelum coding.
+description: "Write technical specifications for features, changes, or bug fixes. Produces a markdown file in .agents/tech-specs/<YEAR>/ for user review, then creates issues after approval. Gunakan ketika: user minta tech spec, user minta spesifikasi teknis, user minta implementation plan, user minta dokumentasi teknis, atau user mendeskripsikan fitur yang butuh perencanaan sebelum coding."
 ---
 
 # SKILL: TECH SPEC GENERATOR (Vibe Coding Ready)

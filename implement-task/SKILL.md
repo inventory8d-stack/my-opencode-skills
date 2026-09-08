@@ -1,6 +1,6 @@
 ---
 name: implement-task
-description: Execute and automate coding tasks from the .agents/tasks/ directory. Use when: user says "kerjakan task", "lanjutkan implementasi", "selesaikan tugas", or "start working on tasks".
+description: "Execute and automate coding tasks from the .agents/tasks/ directory. Use when: user says 'kerjakan task', 'lanjutkan implementasi', 'selesaikan tugas', or 'start working on tasks'."
 ---
 # SKILL: IMPLEMENT TASK (Vibe Coding Ready)
 

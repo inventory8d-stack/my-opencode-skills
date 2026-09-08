@@ -14,31 +14,30 @@ git clone https://github.com/dirumahrafif/my-opencode-skills.git
 **Untuk Pengguna Windows:**
 1. Buka folder hasil clone melalui **File Explorer**.
 2. Salin folder skill yang ingin dipasang.
-3. Tekan `Windows + R`, ketik `%APPDATA%\opencode\skills\`, lalu tekan `Enter`.
+3. Tekan `Windows + R`, ketik `%USERPROFILE%\.agents\skills\`, lalu tekan `Enter`.
 4. Tempel (Paste) folder tersebut di sana.
 
 **Untuk Pengguna Mac & Linux:**
 1. Buka terminal dan masuk ke folder hasil clone.
 2. Salin folder skill ke direktori konfigurasi opencode:
    ```bash
-   cp -r my-opencode-skills/* ~/.config/opencode/skills/
+   cp -r my-opencode-skills/* ~/.agents/skills/
    ```
 
-### Langkah 3: Mendaftarkan Skill di `opencode.jsonc`
+### Langkah 3: Mendaftarkan Skill di `opencode.json`
 1. Buka file konfigurasi:
-   - **Windows:** `%APPDATA%\opencode\opencode.jsonc`
-   - **Mac/Linux:** `~/.config/opencode/opencode.jsonc`
-2. Tambahkan skill ke dalam daftar `skills`:
-   ```json
-   {
-     "skills": [
-       {
-         "name": "create-issues",
-         "location": "/path/to/opencode/skills/create-issues"
-       }
-     ]
-   }
-   ```
+   - **Windows:** `%APPDATA%\opencode\opencode.json`
+   - **Mac/Linux:** `~/.config/opencode/opencode.json`
+2. Tambahkan path skill ke dalam `skills.paths`:
+    ```json
+    {
+      "skills": {
+        "paths": [
+          "~/.agents/skills"
+        ]
+      }
+    }
+    ```
 
 ---
 **Selesai!** Sekarang skill siap digunakan dengan memanggil *trigger keywords* yang ada di dalam `SKILL.md`.

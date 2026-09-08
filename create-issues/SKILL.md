@@ -1,15 +1,15 @@
 ---
 name: create-issues
-description: Create local task lists from a Tech Spec file or direct input (bugs, small tasks), with recursive breakdown into atomic, actionable sub-tasks until the whole piece of work is fully decomposed and trackable end-to-end. Use when: user says "buat task", "ada bug", "tambah task", "eksekusi rencana task", "pecah task", "breakdown pekerjaan", or "detailkan task".
+description: "Create local task lists from a Tech Spec file or direct input (bugs, small tasks), with recursive breakdown into atomic, actionable sub-tasks until the whole piece of work is fully decomposed and trackable end-to-end. Use when: user says 'buat task', 'ada bug', 'tambah task', 'eksekusi reencana task', 'pecah task', 'breakdown pekerjaan', or 'detailkan task'."
 ---
 
 # SKILL: TASK GENERATOR (Vibe Coding Ready)
 
 ## 📋 Metadata
 - **Nama:** Task Generator
-- **Versi:** 1.0
+- **Versi:** 1.1
 - **Output:** Task list terperinci
-- **Lokasi File:** `.agents/3-TASKS.md`
+- **Lokasi File:** `.agents/3-TASKS.md` (default) atau `.agents/3-TASKS/{YYYY-MM-DD}_{slug}.md` (file terpisah)
 - **Dependensi:** 2-TECH-SPEC.md (opsional — bisa langsung input user)
 
 ## 🎯 Trigger Keywords
@@ -27,8 +27,8 @@ Skill ini membaca Tech Spec dari `.agents/2-TECH-SPEC.md` dan menghasilkan dafta
 
 ## 📂 Baca/Menyimpan File
 - **Baca Tech Spec:** `@.agents/2-TECH-SPEC.md` (jika ada)
-- **Baca Task:** `@.agents/3-TASKS.md`
-- **Simpan Task:** `.agents/3-TASKS.md`
+- **Baca Task:** `@.agents/3-TASKS.md` (index/utama) atau `@.agents/3-TASKS/*.md` (file terpisah)
+- **Simpan Task:** `.agents/3-TASKS.md` (default) atau `.agents/3-TASKS/{YYYY-MM-DD}_{slug}.md` (file terpisah)
 
 ## ⚙️ Cara Kerja Skill
 
@@ -65,10 +65,25 @@ Dua mode tergantung sumber acuan:
 - **Input langsung (bug/task)** → hasilkan semua task langsung, tanpa pembagian modul.
 
 ### FASE 4: Finalisasi
-Setelah semua task selesai:
+
+**Langkah 1 — Tentukan lokasi penyimpanan:**
+
+| Kondisi | Lokasi | Alasan |
+|---|---|---|
+| Bug/task kecil (input langsung, < 10 task) | Append ke `.agents/3-TASKS.md` | Ringkas, tidak perlu file baru |
+| Tech Spec besar (>= 20 task atau >= 3 modul) | `.agents/3-TASKS/{YYYY-MM-DD}_{slug}.md` | Task banyak, butuh ruang sendiri |
+| Tech Spec kecil (< 20 task) | Append ke `.agents/3-TASKS.md` | Cukup di file utama |
+
+**Langkah 2 — Format penamaan file terpisah:**
+- Format: `{YYYY-MM-DD}_{slug}.md`
+- Slug diambil dari judul Tech Spec atau ringkasan user (lowercase, spasi → strip)
+- Contoh: `2026-09-01_auth-feature.md`, `2026-09-01_fix-login-bug.md`
+
+**Langkah 3 — Finalisasi:**
 1. Tampilkan task list ke user untuk review.
-2. Instruksikan simpan ke `.agents/3-TASKS.md`.
-3. Rekomendasikan lanjut ke **Implementation**.
+2. Simpan task ke lokasi yang sudah ditentukan.
+3. Jika pakai file terpisah, tambahkan index/link di `.agents/3-TASKS.md` (opsional).
+4. Rekomendasikan lanjut ke **Implementation**.
 
 ## 📑 Struktur Task
 Setiap task memiliki format:

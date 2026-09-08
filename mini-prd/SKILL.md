@@ -1,6 +1,6 @@
 ---
 name: mini-prd
-description: Buat Product Requirement Document singkat dan padat untuk memulai proyek baru. Gunakan ketika: user minta buat PRD, user mau buat produk baru, user minta ringkasan produk, user bilang "saya mau buat aplikasi", user minta spesifikasi produk, atau user mau memulai proyek baru.
+description: "Buat Product Requirement Document singkat dan padat untuk memulai proyek baru. Gunakan ketika: user minta buat PRD, user mau buat produk baru, user minta ringkasan produk, user bilang 'saya mau buat aplikasi', user minta spesifikasi produk, atau user mau memulai proyek baru."
 ---
 
 # SKILL: PRD GENERATOR (Vibe Coding Ready)

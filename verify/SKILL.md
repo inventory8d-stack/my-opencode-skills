@@ -1,6 +1,6 @@
 ---
 name: verify
-description: Double-check tasks using Automated (Unit/Integration) and Manual testing. Use when: user says "verifikasi", "cek fitur", or "selesai coding".
+description: "Double-check tasks using Automated (Unit/Integration) and Manual testing. Use when: user says 'verifikasi', 'cek fitur', or 'selesai coding'."
 ---
 
 # SKILL: VERIFY (Vibe Coding Ready)
