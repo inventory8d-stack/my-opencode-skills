@@ -1,18 +1,18 @@
 ---
 name: create-issues
-description: "Create local task lists from a Tech Spec file or direct input (bugs, small tasks), with recursive breakdown into atomic, actionable sub-tasks until the whole piece of work is fully decomposed and trackable end-to-end. Use when: user says 'buat task', 'ada bug', 'tambah task', 'eksekusi reencana task', 'pecah task', 'breakdown pekerjaan', or 'detailkan task'."
+description: "Membuat daftar task lokal dari file Tech Spec atau input langsung (bug, task kecil), dengan pemecahan rekursif menjadi sub-task kecil yang dapat dikerjakan hingga seluruh pekerjaan terurai dan dapat dilacak menyeluruh. Gunakan ketika: user bilang 'buat task', 'ada bug', 'tambah task', 'eksekusi reencana task', 'pecah task', 'breakdown pekerjaan', atau 'detailkan task'."
 ---
 
-# SKILL: TASK GENERATOR (Vibe Coding Ready)
+# SKILL: GENERATOR TASK
 
 ## 📋 Metadata
-- **Nama:** Task Generator
+- **Nama:** Generator Task
 - **Versi:** 1.1
-- **Output:** Task list terperinci
+- **Output:** Daftar task terperinci
 - **Lokasi File:** `.agents/3-TASKS.md` (default) atau `.agents/3-TASKS/{YYYY-MM-DD}_{slug}.md` (file terpisah)
 - **Dependensi:** 2-TECH-SPEC.md (opsional — bisa langsung input user)
 
-## 🎯 Trigger Keywords
+## 🎯 Kata Kunci Pemicu
 Otomatis aktif saat user menyebut:
 - "Buat Task"
 - "Buat tugas"
@@ -32,10 +32,10 @@ Skill ini membaca Tech Spec dari `.agents/2-TECH-SPEC.md` dan menghasilkan dafta
 
 ## ⚙️ Cara Kerja Skill
 
-### FASE 1: Deteksi Trigger & Analisa Input
+### FASE 1: Deteksi Pemicu & Analisa Input
 
 **Langkah 1 — Cek input user:**
-- Apakah user sudah memberikan deskripsi langsung? (bug report, fitur kecil, dll)
+- Apakah user sudah memberikan deskripsi langsung? (laporan bug, fitur kecil, dll)
 - Atau hanya trigger kata kunci tanpa deskripsi?
 
 **Langkah 2 — Cek sumber acuan:**
@@ -43,20 +43,20 @@ Skill ini membaca Tech Spec dari `.agents/2-TECH-SPEC.md` dan menghasilkan dafta
 - Jika user memberikan input langsung (bug/task sederhana) → langsung proses tanpa Tech Spec, gunakan input user sebagai acuan
 - Jika tidak ada 2-TECH-SPEC.md DAN user tidak memberikan input → minta user buat Tech Spec dulu
 
-**Langkah 3 — Auto-detect boilerplate (opsional, jika di direktori project):**
+**Langkah 3 — Deteksi otomatis boilerplate (opsional, jika di direktori project):**
 AI cek apakah project sudah ada atau masih baru dengan mencari file kunci:
 - `package.json` / `composer.json` / `pyproject.toml` / `go.mod` / `Cargo.toml` / `Gemfile` / `pubspec.yaml`
 - Jika ada → sudah ada boilerplate
 - Jika tidak ada → project baru
 
-### FASE 2: Konfirmasi Scope
+### FASE 2: Konfirmasi Cakupan
 
 Tanyakan 1 hal:
 - **Prioritas utama?** (Fitur inti dulu atau semua sekaligus?)
 
-Default:
+Bawaan:
 - Project baru → setup dulu, lalu fitur sesuai modul
-- Boilerplate sudah ada → skip setup, langsung task fitur
+- Boilerplate sudah ada → lewati setup, langsung task fitur
 
 ### FASE 3: Produksi Task
 
@@ -70,17 +70,17 @@ Dua mode tergantung sumber acuan:
 
 | Kondisi | Lokasi | Alasan |
 |---|---|---|
-| Bug/task kecil (input langsung, < 10 task) | Append ke `.agents/3-TASKS.md` | Ringkas, tidak perlu file baru |
+| Bug/task kecil (input langsung, < 10 task) | Tambahkan ke `.agents/3-TASKS.md` | Ringkas, tidak perlu file baru |
 | Tech Spec besar (>= 20 task atau >= 3 modul) | `.agents/3-TASKS/{YYYY-MM-DD}_{slug}.md` | Task banyak, butuh ruang sendiri |
-| Tech Spec kecil (< 20 task) | Append ke `.agents/3-TASKS.md` | Cukup di file utama |
+| Tech Spec kecil (< 20 task) | Tambahkan ke `.agents/3-TASKS.md` | Cukup di file utama |
 
 **Langkah 2 — Format penamaan file terpisah:**
 - Format: `{YYYY-MM-DD}_{slug}.md`
-- Slug diambil dari judul Tech Spec atau ringkasan user (lowercase, spasi → strip)
+- Slug diambil dari judul Tech Spec atau ringkasan user (huruf kecil, spasi diganti tanda hubung)
 - Contoh: `2026-09-01_auth-feature.md`, `2026-09-01_fix-login-bug.md`
 
 **Langkah 3 — Finalisasi:**
-1. Tampilkan task list ke user untuk review.
+1. Tampilkan daftar task ke user untuk ditinjau.
 2. Simpan task ke lokasi yang sudah ditentukan.
 3. Jika pakai file terpisah, tambahkan index/link di `.agents/3-TASKS.md` (opsional).
 4. Rekomendasikan lanjut ke **Implementation**.
@@ -91,8 +91,8 @@ Setiap task memiliki format:
 - **Judul:** [Nama task]
 - **Deskripsi:** [Penjelasan singkat]
 - **Modul:** [Nama modul]
-- **Prioritas:** High/Mid/Low
-- **Status:** Todo/In Progress/Done
+- **Prioritas:** Tinggi/Sedang/Rendah
+- **Status:** Belum Dikerjakan/Sedang Dikerjakan/Selesai
 - **Dependensi:** [ID task yang harus selesai dulu]
 - **Tanggal:** [YYYY-MM-DD]
 - **Estimasi:** [Jam/hari]
@@ -100,29 +100,29 @@ Setiap task memiliki format:
 
 ## 📄 TASK LIST
 
-> AI generate task. Task bersifat konkret dan actionable.
+> AI hasilkan task. Task bersifat konkret dan dapat dikerjakan.
 >
 > **Sumber acuan untuk task:**
-> - Tech Spec → breakdown fitur per modul
-> - Input langsung (bug/task) → breakdown langsung dari deskripsi user
+> - Tech Spec → rincian fitur per modul
+> - Input langsung (bug/task) → rincian langsung dari deskripsi user
 >
-> **Task yang muncul tergantung konten + hasil auto-detect — tidak ada template tetap:**
-> - Project baru → include Setup Project
-> - Boilerplate sudah ada → skip Setup Project, langsung fitur
+> **Task yang muncul tergantung konten + hasil deteksi otomatis — tidak ada template tetap:**
+> - Project baru → sertakan Penyiapan Project
+> - Boilerplate sudah ada → lewati Penyiapan Project, langsung fitur
 > - Ada database → task setup DB + model/entity + migrasi
-> - Ada interface/API → task routing/endpoint/action
+> - Ada interface/API → task routing/endpoint/aksi
 > - Ada frontend → task komponen/halaman/layout
-> - Ada autentikasi → task auth flow
-> - Tidak ada database → skip semua task terkait DB
-> - Static/frontend-only → skip backend, fokus ke UI
+> - Ada autentikasi → task alur auth
+> - Tidak ada database → lewati semua task terkait DB
+> - Static/frontend-only → lewati backend, fokus ke UI
 
-=== GENERATE OLEH AI BERDASARKAN ACUAN (TECH SPEC / INPUT USER) ===
+=== DIHASILKAN OLEH AI BERDASARKAN ACUAN (TECH SPEC / INPUT USER) ===
 
 AI tentukan skenario berdasarkan hasil FASE 1 & 2:
-- **Input langsung (bug/task)** → breakdown langsung dari deskripsi user, tanpa modul
-- **Project baru + Tech Spec** → mulai dari T-01: Setup Project, lalu task fitur per modul
-- **Boilerplate + Tech Spec** → skip T-01 Setup Project, mulai dari task fitur langsung
+- **Input langsung (bug/task)** → rincian langsung dari deskripsi user, tanpa modul
+- **Project baru + Tech Spec** → mulai dari T-01: Penyiapan Project, lalu task fitur per modul
+- **Boilerplate + Tech Spec** → lewati T-01 Penyiapan Project, mulai dari task fitur langsung
 
-AI urutkan task berdasarkan dependensi. Jangan buat task yang tidak relevan (e.g., skip database jika tidak pakai DB, skip auth jika tidak disebut acuan).
+AI urutkan task berdasarkan dependensi. Jangan buat task yang tidak relevan (mis. lewati database jika tidak pakai DB, lewati auth jika tidak disebut acuan).
 
 

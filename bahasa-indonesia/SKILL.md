@@ -10,7 +10,7 @@ description: "Seluruh jawaban, penjelasan, hasil pemikiran, alasan keputusan, ri
 - **Versi:** 1.0
 - **Output:** Seluruh komunikasi dalam bahasa Indonesia
 
-## 🎯 Trigger Keywords
+## 🎯 Kata Kunci Pemicu
 Aktif saat user menyebut:
 - "berbahasa indonesia" / "pakai bahasa indonesia" / "selalu bahasa indonesia"
 - "gunakan bahasa indonesia untuk keterangan"

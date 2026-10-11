@@ -3,16 +3,16 @@ name: mini-prd
 description: "Buat Product Requirement Document singkat dan padat untuk memulai proyek baru. Gunakan ketika: user minta buat PRD, user mau buat produk baru, user minta ringkasan produk, user bilang 'saya mau buat aplikasi', user minta spesifikasi produk, atau user mau memulai proyek baru."
 ---
 
-# SKILL: PRD GENERATOR (Vibe Coding Ready)
+# SKILL: GENERATOR PRD
 
 ## 📋 Metadata
-- **Nama:** PRD Generator
+- **Nama:** Generator PRD
 - **Versi:** 1.0
 - **Output:** PRD 6 bagian
 - **Lokasi File:** `.agents/1-PRD.md`
 
 
-## 🎯 Trigger Keywords
+## 🎯 Kata Kunci Pemicu
 Otomatis aktif saat user menyebut:
 - "Buat PRD untuk..."
 - "Buat product requirement..."
@@ -31,7 +31,7 @@ Skill ini membuat PRD ringkas tapi detail untuk keperluan vibe coding. Cukup unt
 
 ## ⚙️ Cara Kerja Skill
 
-### FASE 1: Deteksi Trigger
+### FASE 1: Deteksi Pemicu
 - Jika user bilang **"baca"** atau **"load"** → Baca `.agents/1-PRD.md` dan beri ringkasan.
 - Jika user bilang **"buat"** atau **"ide"** → Lanjut ke FASE 2.
 
@@ -48,16 +48,16 @@ Hasilkan PRD **per bagian**. Setiap bagian minta user ketik `lanjut`.
 Setelah bagian 6 selesai:
 1. Ucapkan selamat.
 2. Instruksikan simpan ke `.agents/1-PRD.md`.
-3. Rekomendasikan lanjut ke **Tech Spec Generator**.
+3. Rekomendasikan lanjut ke **Generator Tech Spec**.
 
 ## 📑 6 Bagian PRD
 
 1. Visi & Tujuan
-2. User Persona (2 persona)
-3. User Stories (10-15)
-4. Functional Requirements (15-20 FR)
-5. Non-Functional Requirements
-6. Out of Scope & Dependensi
+2. Persona Pengguna (2 persona)
+3. Cerita Pengguna (10-15)
+4. Kebutuhan Fungsional (15-20 FR)
+5. Kebutuhan Non-Fungsional
+6. Di Luar Cakupan & Dependensi
 
 ## 📄 BAGIAN 1: Visi & Tujuan Produk
 
@@ -69,28 +69,28 @@ Setelah bagian 6 selesai:
 2. [Tujuan 2] - [Indikator keberhasilan]
 3. [Tujuan 3] - [Indikator keberhasilan]
 
-### Value Proposition
+### Proposisi Nilai
 - [Nilai unik 1]
 - [Nilai unik 2]
 - [Nilai unik 3]
 
-## 📄 BAGIAN 2: User Persona
+## 📄 BAGIAN 2: Persona Pengguna
 
 ### Persona 1: [Nama]
 - **Usia/Pekerjaan:** [Usia], [Pekerjaan]
 - **Level Teknis:** [Pemula/Menengah/Mahir]
 - **Tujuan:** [Apa yang ingin dicapai?]
-- **Pain Points:** [Masalah yang dihadapi]
+- **Masalah:** [Masalah yang dihadapi]
 - **Motivasi:** [Kenapa pakai produk ini?]
 
 ### Persona 2: [Nama]
 - **Usia/Pekerjaan:** [Usia], [Pekerjaan]
 - **Level Teknis:** [Pemula/Menengah/Mahir]
 - **Tujuan:** [Apa yang ingin dicapai?]
-- **Pain Points:** [Masalah yang dihadapi]
+- **Masalah:** [Masalah yang dihadapi]
 - **Motivasi:** [Kenapa pakai produk ini?]
 
-## 📄 BAGIAN 3: User Stories
+## 📄 BAGIAN 3: Cerita Pengguna
 
 ### Format
 `Sebagai [peran], saya ingin [tindakan], agar [manfaat].`
@@ -108,9 +108,9 @@ Setelah bagian 6 selesai:
 - Sebagai [peran], saya ingin [tindakan], agar [manfaat].
 - [Lanjutkan minimal 3-5 per modul]
 
-*(Total 10-15 user stories)*
+*(Total 10-15 cerita pengguna)*
 
-## 📄 BAGIAN 4: Functional Requirements
+## 📄 BAGIAN 4: Kebutuhan Fungsional
 
 ### Format
 **FR-XX: [Nama Fitur]**
@@ -129,7 +129,7 @@ Setelah bagian 6 selesai:
 
 **FR-02: Login Pengguna**
 - **Input:** Email, password
-- **Proses:** Verifikasi kredensial, generate JWT token
+- **Proses:** Verifikasi kredensial, hasilkan token JWT
 - **Output:** Token akses, redirect ke dashboard
 - **Aturan:** 5x gagal = blokir 15 menit
 
@@ -143,32 +143,32 @@ Setelah bagian 6 selesai:
 
 *(Total 15-20 FR, lanjutkan untuk semua modul)*
 
-## 📄 BAGIAN 5: Non-Functional Requirements
+## 📄 BAGIAN 5: Kebutuhan Non-Fungsional
 
 ### Performa
 - Waktu muat halaman < 2 detik
-- API response < 500ms
-- Support 1000 user concurrent
+- Response API < 500ms
+- Mendukung 1000 user concurrent
 
 ### Keamanan
 - Password di-hash (bcrypt)
 - HTTPS wajib
-- JWT token expiry 24 jam
-- Role-based access control
+- Masa berlaku token JWT 24 jam
+- Kontrol akses berbasis peran (RBAC)
 
 ### Skalabilitas
 - Target 10.000 user aktif
-- Bisa scale horizontal (load balancer)
+- Bisa di-scale horizontal (load balancer)
 - Database siap sharding
 
-### Usability
-- Responsive (mobile, tablet, desktop)
+### Kegunaan
+- Responsif (mobile, tablet, desktop)
 - Bahasa Indonesia
-- Dark mode support
+- Dukungan mode gelap
 
-## 📄 BAGIAN 6: Out of Scope & Dependensi
+## 📄 BAGIAN 6: Di Luar Cakupan & Dependensi
 
-### Out of Scope (Tidak Dikerjakan di V1)
+### Di Luar Cakupan (Tidak Dikerjakan di V1)
 - [Fitur 1] - ditunda ke v2
 - [Fitur 2] - ditunda ke v2
 - [Fitur 3] - ditunda ke v2

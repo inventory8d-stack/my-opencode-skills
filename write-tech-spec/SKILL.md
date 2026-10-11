@@ -1,20 +1,20 @@
 ---
 name: write-tech-spec
-description: "Write technical specifications for features, changes, or bug fixes. Produces a markdown file in .agents/tech-specs/<YEAR>/ for user review, then creates issues after approval. Gunakan ketika: user minta tech spec, user minta spesifikasi teknis, user minta implementation plan, user minta dokumentasi teknis, atau user mendeskripsikan fitur yang butuh perencanaan sebelum coding."
+description: "Menulis spesifikasi teknis untuk fitur, perubahan, atau perbaikan bug. Menghasilkan file markdown di .agents/tech-specs/<YEAR>/ untuk ditinjau user, lalu membuat issue setelah disetujui. Gunakan ketika: user minta tech spec, user minta spesifikasi teknis, user minta implementation plan, user minta dokumentasi teknis, atau user mendeskripsikan fitur yang butuh perencanaan sebelum coding."
 ---
 
-# SKILL: TECH SPEC GENERATOR (Vibe Coding Ready)
+# SKILL: GENERATOR TECH SPEC
 
 ---
 
 ## 📋 Metadata
-- **Nama:** Tech Spec Generator
+- **Nama:** Generator Tech Spec
 - **Versi:** 1.0
 - **Output:** Tech Spec 5 bagian
 - **Lokasi File:** `.agents/2-TECH-SPEC.md`
 - **Dependensi:** 1-PRD.md (wajib dibaca)
 
-## 🎯 Trigger Keywords
+## 🎯 Kata Kunci Pemicu
 Otomatis aktif saat user menyebut:
 - "Buat Tech Spec"
 - "Buat spesifikasi teknis"
@@ -34,7 +34,7 @@ Skill ini membaca PRD dari `.agents/1-PRD.md` dan menghasilkan Tech Spec ringkas
 
 ## ⚙️ Cara Kerja Skill
 
-### FASE 1: Deteksi Trigger & Baca PRD
+### FASE 1: Deteksi Pemicu & Baca PRD
 **WAJIB:** Sebelum membuat Tech Spec, AI HARUS:
 1. Cek file `.agents/1-PRD.md`
 2. Jika ada: baca dan jadikan acuan
@@ -42,18 +42,18 @@ Skill ini membaca PRD dari `.agents/1-PRD.md` dan menghasilkan Tech Spec ringkas
 
 ### FASE 2: Klarifikasi (3 Pertanyaan)
 Tanyakan 3 hal ini sebelum mulai:
-1. **Tech Stack pilihan?** (Frontend & Backend — stack apapun, e.g., Next.js / React+Vite / Vue / Svelte / Django / FastAPI / Go / Laravel / Spring / Ruby on Rails / ASP.NET / Phoenix)
+1. **Tech Stack pilihan?** (Frontend & Backend — stack apapun, mis., Next.js / React+Vite / Vue / Svelte / Django / FastAPI / Go / Laravel / Spring / Ruby on Rails / ASP.NET / Phoenix)
 2. **Database?** (PostgreSQL/MySQL/MongoDB)
 3. **Hosting?** (Vercel/AWS/DigitalOcean)
 
-Default jika user tidak menentukan:
-- Frontend: [Framework, e.g., Next.js 14+ / React / Vue / Svelte / Django Templates]
-- Backend: [Runtime, e.g., Node.js+Express / Python+FastAPI / Go+Chi / Java Spring]
-- Database: [Database, e.g., PostgreSQL / MySQL / MongoDB / SQLite]
-- ORM: [ORM, e.g., Prisma / Drizzle / TypeORM / SQLAlchemy / Mongoose]
-- Hosting: [Hosting, e.g., Vercel / AWS / Railway / DigitalOcean / Fly.io]
+Bawaan jika user tidak menentukan:
+- Frontend: [Framework, mis., Next.js 14+ / React / Vue / Svelte / Django Templates]
+- Backend: [Runtime, mis., Node.js+Express / Python+FastAPI / Go+Chi / Java Spring]
+- Database: [Database, mis., PostgreSQL / MySQL / MongoDB / SQLite]
+- ORM: [ORM, mis., Prisma / Drizzle / TypeORM / SQLAlchemy / Mongoose]
+- Hosting: [Hosting, mis., Vercel / AWS / Railway / DigitalOcean / Fly.io]
 
-> **Catatan:** List di atas hanya contoh. AI harus bisa menangani stack apapun yang dipilih user (Ruby on Rails, ASP.NET, Phoenix, SvelteKit, dll.) dengan mengikuti best practice resmi dari framework tersebut.
+> **Catatan:** Daftar di atas hanya contoh. AI harus bisa menangani stack apapun yang dipilih user (Ruby on Rails, ASP.NET, Phoenix, SvelteKit, dll.) dengan mengikuti praktik terbaik resmi dari framework tersebut.
 
 ### FASE 3: Produksi Tech Spec (5 Bagian)
 Hasilkan per bagian. User ketik `lanjut` untuk melanjutkan.
@@ -62,22 +62,22 @@ Hasilkan per bagian. User ketik `lanjut` untuk melanjutkan.
 Setelah bagian 5 selesai:
 1. Ucapkan selamat.
 2. Instruksikan simpan ke `.agents/2-TECH-SPEC.md`.
-3. Rekomendasikan lanjut ke **Task Generator**.
+3. Rekomendasikan lanjut ke **Generator Task**.
 
 ## 📑 5 Bagian Tech Spec
 1. Tech Stack & Arsitektur
-2. Database Design
-3. Interface Design
-4. Alur Logika & Business Rules
+2. Desain Database
+3. Desain Antarmuka (Interface)
+4. Alur Logika & Aturan Bisnis
 5. Keamanan, Performa, & Deployment
 
 ## 📄 BAGIAN 1: Tech Stack & Arsitektur
 
 ### Tech Stack
-| Layer | Technology | Version |
+| Layer | Teknologi | Versi |
 |-------|------------|---------|
 | Frontend | [Framework] | [Versi] |
-| Language | TypeScript | 5.x |
+| Bahasa | TypeScript | 5.x |
 | Styling | [Tailwind / Bootstrap / CSS Modules / none] | [Versi] |
 | State | [Zustand/Redux/Context/Pinia/Vuex/none] | - |
 | Backend | [Framework] | [Versi] |
@@ -94,22 +94,22 @@ Frontend → Backend/API → Database
 [File Storage] [Cache Layer]
 ### Struktur Folder
 
-```struktur folder mengikuti best practice resmi dari framework yang dipilih user.```
+```struktur folder mengikuti praktik terbaik resmi dari framework yang dipilih user.```
 
-> AI HARUS generate struktur folder sesuai framework. Contoh:
+> AI HARUS menghasilkan struktur folder sesuai framework. Contoh:
 > - **Laravel 11** → `app/Http/Controllers`, `app/Models`, `database/migrations`, `routes/`
 > - **Next.js 14+** → `src/app`, `src/components`, `src/lib`
 > - **Go 1.22+** → `cmd/`, `internal/handler`, `internal/model`, `internal/service`
 > - **Django 5.x** → `app_name/api/`, `app_name/models.py`, `app_name/services/`
 > - **FastAPI** → `app/api/`, `app/models/`, `app/schemas/`, `app/services/`
 > - **Ruby on Rails 8** → `app/controllers`, `app/models`, `config/routes.rb`
-> - Stack lain → cari best practice resmi framework tersebut
+> - Stack lain → cari praktik terbaik resmi framework tersebut
 ### Justifikasi
-- **[Framework]:** [Alasan singkat, e.g., "Performance & DX"]
-- **[Database]:** [Alasan, e.g., "Struktur data relasional"]
-- **[Hosting]:** [Alasan, e.g., "Mudah deploy & scale"]
+- **[Framework]:** [Alasan singkat, mis., "Performa & DX"]
+- **[Database]:** [Alasan, mis., "Struktur data relasional"]
+- **[Hosting]:** [Alasan, mis., "Mudah deploy & scale"]
 
-## 📄 BAGIAN 2: Database Design
+## 📄 BAGIAN 2: Desain Database
 
 ### Ringkasan Database
 | Item | Detail |
@@ -117,47 +117,47 @@ Frontend → Backend/API → Database
 | Database | [PostgreSQL / MySQL / MongoDB / SQLite / Firebase / Supabase / ...] |
 | ORM/Driver | [Prisma / Drizzle / Mongoose / SQLAlchemy / Firebase SDK / ...] |
 | Pendekatan | [Relational / Document / Key-Value / Graph] |
-| Tools Migrasi | [Prisma Migrate / Alembic / Flyway / manual] |
+| Alat Migrasi | [Prisma Migrate / Alembic / Flyway / manual] |
 
-### Entity Overview
+### Ikhtisar Entity
 *Daftar entitas utama dari PRD, cukup field penting + relasi (detail kolom ditentukan saat implementasi):*
 
-| Entity | Key Fields | Relasi |
+| Entity | Field Kunci | Relasi |
 |--------|-----------|--------|
 | [Entity 1] | id, [field_a], [field_b] | → Entity 2 (1:N) |
 | [Entity 2] | id, entity_1_id, [field_c] | ← Entity 1, → Entity 3 |
 | [Entity 3] | id, entity_2_id, [field_d] | ← Entity 2 |
 
-### Index Strategy (jika relational)
-- **[entity_1].[field]** — lookup by [description]
-- **[entity_2].[entity_1_id]** — foreign key index
+### Strategi Indeks (jika relasional)
+- **[entity_1].[field]** — pencarian berdasarkan [description]
+- **[entity_2].[entity_1_id]** — indeks foreign key
 
-### Data Flow
-[Deskripsi bagaimana data mengalir antar entity, e.g.:
-"User membuat Order → Order memiliki OrderItem → setiap OrderItem merefer ke Product"]
-## 📄 BAGIAN 3: Interface Design
+### Alur Data
+[Deskripsi bagaimana data mengalir antar entity, mis.:
+"User membuat Order → Order memiliki OrderItem → setiap OrderItem merujuk ke Product"]
+## 📄 BAGIAN 3: Desain Antarmuka
 
 > Konten bagian ini otomatis menyesuaikan stack yang dipilih di FASE 2.
-> AI lihat stack + PRD, tentukan bentuk interface yang tepat, generate secukupnya.
+> AI lihat stack + PRD, tentukan bentuk antarmuka yang tepat, hasilkan secukupnya.
 >
-> - **Monolith (Laravel/Django/Rails)** → Routes + Controller + View
-> - **SPA + Backend API** → REST / GraphQL endpoints
-> - **Next.js/SvelteKit/Remix** → Server Actions / API Routes
-> - **HTMX** → HTML endpoints (return partial)
-> - **Mobile app** → API endpoints
-> - **Desktop app (Electron/Tauri)** → IPC channels
-> - **Static / Frontend-only** → BAGIAN 3 tidak diperlukan, skip
+> - **Monolith (Laravel/Django/Rails)** → Route + Controller + View
+> - **SPA + Backend API** → endpoint REST / GraphQL
+> - **Next.js/SvelteKit/Remix** → Server Action / API Route
+> - **HTMX** → endpoint HTML (kembalikan partial)
+> - **Aplikasi mobile** → endpoint API
+> - **Aplikasi desktop (Electron/Tauri)** → kanal IPC
+> - **Static / Frontend-only** → BAGIAN 3 tidak diperlukan, lewati
 
-=== GENERATE OLEH AI BERDASARKAN PRD & STACK ===
-| Method | Path / Action | Description | Auth |
+=== DIHASILKAN OLEH AI BERDASARKAN PRD & STACK ===
+| Method | Path / Aksi | Deskripsi | Auth |
 |--------|---------------|-------------|------|
-| [GET/POST/action] | [path / route name / action name] | [deskripsi dari PRD] | Yes/No/N/A |
+| [GET/POST/aksi] | [path / nama route / nama aksi] | [deskripsi dari PRD] | Ya/Tidak/N/A |
 
 *Cukup tabel ringkas — detail request/response ditentukan saat implementasi.*
 
-## 📄 BAGIAN 4: Alur Logika & Business Rules
+## 📄 BAGIAN 4: Alur Logika & Aturan Bisnis
 
-> AI generate alur dari PRD, format menyesuaikan arsitektur stack yang dipilih.
+> AI hasilkan alur dari PRD, format menyesuaikan arsitektur stack yang dipilih.
 > Hanya buat alur untuk fitur yang benar-benar ada di PRD.
 >
 > - **Monolith** → User → Route → Controller → Model → View
@@ -165,10 +165,10 @@ Frontend → Backend/API → Database
 > - **Serverless** → User → Client → Function → DB/Service
 > - **Mobile / Desktop** → User → App → Service/API
 >
-> Auth flow hanya dibahas jika PRD menyebutkan fitur auth.
-> State management sesuaikan frontend stack (React Query / Pinia / Vuex / Signals / Context / dll)
+> Alur auth hanya dibahas jika PRD menyebutkan fitur auth.
+> Manajemen state sesuaikan frontend stack (React Query / Pinia / Vuex / Signals / Context / dll)
 
-=== GENERATE OLEH AI BERDASARKAN PRD & STACK ===
+=== DIHASILKAN OLEH AI BERDASARKAN PRD & STACK ===
 
 **Alur [Fitur 1 dari PRD]:**
 1. [Langkah sesuai PRD]
@@ -179,23 +179,23 @@ Frontend → Backend/API → Database
 1. [Langkah sesuai PRD]
 2. [Langkah sesuai PRD]
 
-### Business Rules (dari PRD)
-- [Rule 1 dari PRD]
-- [Rule 2 dari PRD] 
+### Aturan Bisnis (dari PRD)
+- [Aturan 1 dari PRD]
+- [Aturan 2 dari PRD] 
 
 ## 📄 BAGIAN 5: Keamanan, Performa, & Deployment
 
-> AI generate konten berdasarkan stack + hosting yang dipilih di FASE 2.
+> AI hasilkan konten berdasarkan stack + hosting yang dipilih di FASE 2.
 > Hanya cantumkan item yang relevan — jangan copy-paste template.
 >
 > Contoh:
 > - **Next.js + Vercel** → Vercel Analytics, Next.js Image, auto-deploy
 > - **Laravel + DO** → Laravel Horizon, Supervisor, Redis, manual deploy
 > - **FastAPI + Railway** → Uvicorn workers, Railway auto-deploy, Sentry
-> - **Static site + Netlify** → Netlify deploy, skip keamanan backend
-> - **Electron desktop** → Auto-update, offline storage, skip deployment
+> - **Static site + Netlify** → Netlify deploy, lewati keamanan backend
+> - **Electron desktop** → Auto-update, penyimpanan offline, lewati deployment
 
-=== GENERATE OLEH AI BERDASARKAN STACK & HOSTING ===
+=== DIHASILKAN OLEH AI BERDASARKAN STACK & HOSTING ===
 
 ### Keamanan
 - **[item relevan dari PRD + stack]**
@@ -206,9 +206,9 @@ Frontend → Backend/API → Database
 ### Deployment
 - **[item relevan dari stack + hosting]
 
-### Development Setup
+### Penyiapan Pengembangan
 
-```AI harus generate perintah setup sesuai framework yang dipilih user.```
+```AI harus menghasilkan perintah setup sesuai framework yang dipilih user.```
 
 Contoh:
 - **Node.js/TypeScript** → `npm install && npm run dev`
@@ -226,5 +226,5 @@ Contoh:
 1. **Simpan file:**
    Simpan seluruh konten Tech Spec sebagai `.agents/2-TECH-SPEC.md`
 
-2. **Lanjut ke Task Generator:**
+2. **Lanjut ke Generator Task:**
    Ketik: `"Buat Task berdasarkan Tech Spec yang sudah dibuat"`

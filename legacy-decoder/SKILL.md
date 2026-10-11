@@ -1,6 +1,6 @@
 ---
 name: legacy-decoder
-description: "Reverse-engineer legacy code into structured documentation (Tech Spec + Tasks). Use when: user says 'pahami kode', 'analisis legacy', 'reverse engineer', 'mapping kode', 'dokumentasi kode existing'."
+description: "Membongkar legacy code secara reverse-engineer menjadi dokumentasi terstruktur (Tech Spec + Task). Gunakan ketika: user bilang 'pahami kode', 'analisis legacy', 'reverse engineer', 'mapping kode', 'dokumentasi kode existing'."
 ---
 
 # SKILL: LEGACY DECODER
@@ -12,7 +12,7 @@ description: "Reverse-engineer legacy code into structured documentation (Tech S
 - **Lokasi File:** `.agents/4-LEGACY-DECODER.md`
 - **Dependensi:** Tidak ada (bekerja dari kode existing)
 
-## 🎯 Trigger Keywords
+## 🎯 Kata Kunci Pemicu
 - "Pahami kode"
 - "Analisis legacy"
 - "Reverse engineer"
@@ -31,43 +31,43 @@ description: "Reverse-engineer legacy code into structured documentation (Tech S
 
 ## ⚙️ Cara Kerja Skill
 
-### FASE 0: Deteksi Trigger
+### FASE 0: Deteksi Pemicu
 - Jika user bilang **"baca"** atau **"load"** → Baca `.agents/4-LEGACY-DECODER.md` dan beri ringkasan.
 - Jika user bilang **"pahami"**, **"analisis"**, **"reverse"**, **"mapping"**, atau **"review"** → Lanjut ke FASE 1.
 
-### FASE 1: Discovery
-1. Scan struktur folder project
+### FASE 1: Penelusuran
+1. Pindai struktur folder project
 2. Baca file konfigurasi (`package.json`, `composer.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`, `Gemfile`, `pubspec.yaml`, `CMakeLists.txt`, `pom.xml`, dll.)
-3. Identifikasi framework, runtime, database, dan dependency utama
-4. Simpan ringkasan stack + struktur folder ke `.agents/4-LEGACY-DECODER.md` (append)
+3. Identifikasi framework, runtime, database, dan dependensi utama
+4. Simpan ringkasan stack + struktur folder ke `.agents/4-LEGACY-DECODER.md` (tambahkan)
 
-### FASE 2: Codebase Mapping
+### FASE 2: Pemetaan Codebase
 1. Petakan struktur direktori (controller/model/service/route/view)
 2. Identifikasi entry point dan alur request
-3. Simpan dependency graph / arsitektur tingkat tinggi ke `.agents/4-LEGACY-DECODER.md` (append)
+3. Simpan graf dependensi / arsitektur tingkat tinggi ke `.agents/4-LEGACY-DECODER.md` (tambahkan)
 
-### FASE 3: Business Logic Extraction
-1. Ekstrak daftar routes/endpoints/actions
-2. Identifikasi entities/models utama dan relasinya
-3. Catat business rules yang terlihat dari kode
-4. Simpan ringkasan business logic ke `.agents/4-LEGACY-DECODER.md` (append)
+### FASE 3: Ekstraksi Logika Bisnis
+1. Ekstrak daftar route/endpoint/aksi
+2. Identifikasi entity/model utama dan relasinya
+3. Catat aturan bisnis yang terlihat dari kode
+4. Simpan ringkasan logika bisnis ke `.agents/4-LEGACY-DECODER.md` (tambahkan)
 
-### FASE 4: Database Reverse (jika ada DB)
-1. Baca migration files / schema definition
-2. Petakan entity-relationship
+### FASE 4: Reverse Engineering Database (jika ada DB)
+1. Baca file migration / definisi schema
+2. Petakan relasi antar-entity
 3. Catat index, constraint, trigger
-4. Simpan database overview ke `.agents/4-LEGACY-DECODER.md` (append)
+4. Simpan ringkasan database ke `.agents/4-LEGACY-DECODER.md` (tambahkan)
 
-### FASE 5: Output Generation
+### FASE 5: Pembuatan Output
 Setelah FASE 1-4 selesai dan semua tersimpan:
 
 **Opsional — Tech Spec (`2-TECH-SPEC.md`):**
 1. Tanyakan: "Buat Tech Spec dari hasil analisis? (y/n)"
-2. Jika ya → generate 5 bagian (Tech Stack, DB Design, Interface, Alur, Keamanan)
+2. Jika ya → hasilkan 5 bagian (Tech Stack, Desain DB, Antarmuka, Alur, Keamanan)
 3. Simpan ke `.agents/2-TECH-SPEC.md`
 
-**Wajib — Tasks (`3-TASKS.md`):**
-1. Generate task list berdasarkan temuan (refactor, bug fix, optimasi, dokumentasi)
+**Wajib — Task (`3-TASKS.md`):**
+1. Hasilkan daftar task berdasarkan temuan (refactor, perbaikan bug, optimasi, dokumentasi)
 2. Simpan ke `.agents/3-TASKS.md`
 
 ### FASE 6: Finalisasi
